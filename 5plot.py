@@ -64,3 +64,6 @@ plt.ylabel(r"$\frac{D}{U_d}$ / $\frac{\symup{mm}}{\symup{V}}$")
 plt.legend()
 plt.tight_layout()
 plt.savefig("build/plot_ub.pdf")
+
+with open("build/plots.check", "w") as f:
+    f.write("Nur eine Überprüfungsdatei!")
