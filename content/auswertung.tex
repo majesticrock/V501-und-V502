@@ -42,15 +42,15 @@
 
 \begin{align*}
   a_1 &= (1,29 \pm 0,01) \, \frac{\symup{mm}}{\symup{V}} \\
-  b_1 &= (19,9 \pm 0,2) \, \symup{mm} \\
+  b_1 &= (13,9 \pm 0,2) \, \symup{mm} \\
   a_2 &= (1,04 \pm 0,01) \, \frac{\symup{mm}}{\symup{V}} \\
-  b_2 &= (20,8 \pm 0,2) \, \symup{mm} \\
+  b_2 &= (14,8 \pm 0,2) \, \symup{mm} \\
   a_3 &= (0,914 \pm 0,007) \, \frac{\symup{mm}}{\symup{V}} \\
-  b_3 &= (20,0 \pm 0,1) \, \symup{mm} \\
+  b_3 &= (14,0 \pm 0,1) \, \symup{mm} \\
   a_4 &= (0,80 \pm 0,01) \, \frac{\symup{mm}}{\symup{V}} \\
-  b_4 &= (19,8 \pm 0,2) \, \symup{mm} \\
+  b_4 &= (13,8 \pm 0,2) \, \symup{mm} \\
   a_5 &= (0,694 \pm 0,004) \, \frac{\symup{mm}}{\symup{V}} \\
-  b_5 &= (20,04 \pm 0,07) \, \symup{mm}
+  b_5 &= (14,04 \pm 0,07) \, \symup{mm}
 \end{align*}
 
 
@@ -72,3 +72,37 @@
 \subsection{Magn.}
 
 \input{../content/magn-zsm.tex}
+
+
+\begin{figure}
+  \centering
+  \begin{subfigure}{0.49\textwidth}
+    \centering
+    \includegraphics[width=0.98\textwidth]{build/plot_elektrisch_0.pdf}
+    \caption{$U_\text{B} = 250$ V}
+  \end{subfigure}
+  \begin{subfigure}{0.49\textwidth}
+    \centering
+    \includegraphics[width=0.98\textwidth]{build/plot_elektrisch_1.pdf}
+    \caption{$U_\text{B} = 400$ V}
+  \end{subfigure}
+  \caption{Plots der Ablenkung $D$ gegen das ablenkende Magnetfeld $B$ bei verschiedenen Beschleunigungspannungen $U_\text{B}$.}
+  \label{fig:plot-magnetisch}
+\end{figure}
+
+
+\begin{align*}
+  a_1 &= (8,6 \pm 0,1) \cdot 10^{3} \, \frac{\symup{m}}{\symup{T}} \\
+  b_1 &= (3 \pm 1) \cdot 10^{-2} \, \symup{m} \\
+  a_2 &= (7,70 \pm 0,08) \cdot 10^{3} \, \frac{\symup{m}}{\symup{T}} \\
+  b_2 &= (6 \pm 9) \cdot 10^{-3} \, \symup{m}
+\end{align*}
+
+Damit ist nach GLEICHUNG die spezifische Elektronenladung als 
+
+\begin{align*}
+  \bigg( \frac{e_0}{m_0} \bigg)_{250 \symup{V}} &= (1,48 \pm 0,03) \cdot 10^{11} \, \frac{\symup{C}}{\symup{kg}}
+  \bigg( \frac{e_0}{m_0} \bigg)_{400 \symup{V}} &= (1,90 \pm 0,04) \cdot 10^{11} \, \frac{\symup{C}}{\symup{kg}}
+\end{align*}
+
+gegeben.

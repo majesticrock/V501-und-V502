@@ -4,8 +4,11 @@ all: build/main.pdf
 build/plots.check: 5plot.py matplotlibrc header-matplotlib.tex | build
 	TEXINPUTS=$$(pwd): python 5plot.py
 
+build/mag.check: mag-plot.py matplotlibrc header-matplotlib.tex | build
+	TEXINPUTS=$$(pwd): python mag-plot.py
+
 # hier weitere Abhängigkeiten für build/main.pdf deklarieren:
-build/main.pdf: build/plots.check
+build/main.pdf: build/plots.check build/mag.check
 
 build/main.pdf: FORCE | build
 	  TEXINPUTS=build: \
