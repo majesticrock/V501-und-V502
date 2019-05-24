@@ -18,6 +18,7 @@ n=np.array([9,9,9,8,7])
 plot_ub =  1/(np.array([250, 300, 350, 400, 450]))
 
 params = np.zeros(5)
+y_err = np.zeros(5)
 x_line = np.linspace(-20,35)
 
 
@@ -36,11 +37,12 @@ for i in range(0, 5):
     plt.plot(xdata, ydata, "r.", label="Messwerte")
     popt, pcov = curve_fit(func, xdata, ydata)
     params[i] = popt[0]
+    y_err[i] = np.sqrt(pcov[0,0])
     plt.plot(x_line, func(x_line, *popt), "b-", label="Fit")
     #a_i sind D/U_d
     #b_i sind nur Korrekturkoeffizienten
-    print("a" + str(i) + " = " + str(popt[0]) + "+/-" + str(np.sqrt(pcov[0,0])))
-    print("b" + str(i) + " = " + str(popt[1]) + "+/-" + str(np.sqrt(pcov[1,1])))
+    print("a" + str(i + 1) + " = " + str(popt[0]) + "+/-" + str(np.sqrt(pcov[0,0])))
+    print("b" + str(i + 1) + " = " + str(popt[1]) + "+/-" + str(np.sqrt(pcov[1,1])))
 
     plt.xlabel(r"$U_d$ / V")
     plt.ylabel(r"$D$ / mm")
@@ -50,7 +52,7 @@ for i in range(0, 5):
 
 x_line2 = np.linspace(np.amin(plot_ub), np.amax(plot_ub))
 plt.figure(5)
-plt.plot(plot_ub, params, "r.", label="Messwerte")
+plt.errorbar(plot_ub, params, fmt="r.", label="Messwerte", yerr=y_err)
 popt, pcov = curve_fit(func, plot_ub, params) 
 
 print("------------------------------------")
