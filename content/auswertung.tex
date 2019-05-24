@@ -1,9 +1,19 @@
 \section{Auswertung}
 \label{sec:Auswertung}
 
-\subsection{Elek.}
+\subsection{Ablenkung im E-Feld}
+
+Zunächst werden die Daten aus \autoref{tab:elek-ges} in Diagrammen aufgetragen.
 
 \input{../content/elek-zsm.tex}
+
+Durch diese wird je eine Ausgleichsgerade der Form 
+
+\begin{equation}
+  D = a_i \cdot U_\text{d} + b_i
+\end{equation}
+
+gelegt. Die somit entstehenden Graphen sind in \autoref{fig:plot-elektrisch} zu sehen.
 
 \begin{figure}
   \centering
@@ -38,7 +48,7 @@
   \label{fig:plot-elektrisch}
 \end{figure}
 
-
+Mittels Python 3.7.0 werden die Koeffizienten als
 
 \begin{align*}
   a_1 &= (1,29 \pm 0,01) \, \frac{\symup{mm}}{\symup{V}} \\
@@ -53,7 +63,15 @@
   b_5 &= (14,04 \pm 0,07) \, \symup{mm}
 \end{align*}
 
+bestimmt. Dabei entsprechen die $a_i$ der jeweiligen Empfindlichkeit $\epsilon_i := \frac{D}{U_\text{d}}$
+Diese wird in einem weiteren Plot gegen das Inverse der Beschleunigungspannung $U_\text{B}$ aufgetragen.
+Durch diese Werte wird ebenfalls eine Ausgleichsgerade der Form
 
+\begin{equation}
+  \epsilon_i = \frac{a_6}{U_\text{B}} + b_6
+\end{equation}
+
+gelegt. Der entsprechende Graph ist in \autoref{fig:plt-ub} zu sehen.
 
 \begin{figure}
   \centering
@@ -62,34 +80,77 @@
   \label{fig:plt-ub}
 \end{figure}
 
+Erneut mittels Python 3.7.0 werden die Koeffizienten als
+
 \begin{align*}
   a_6 &= (330 \pm 10) \, \symup{mm} \\
   b_6 &= (-0,03 \pm 0,03) \, \frac{\symup{mm}}{\symup{V}}
 \end{align*}
 
+bestimmt. Zu Vergleichszwecken wird die folgende Größe mit den Theoriewerten berechnet
+
+\begin{equation}
+  \frac{p L}{2 d} = 357,5 \, \symup{mm}.
+\end{equation}
+
+Dabei sind die Geräteabmessungen gegeben durch
+
+\begin{align*}
+  p &= 19  \, \symup{mm} \\
+  L &= 143 \, \symup{mm} \\
+  d &= 3,8 \, \symup{mm}.
+\end{align*}
+
+Weiterhin kann aus den Werten in \autoref{tab:oszi} die Frequenz einer Sinusspannung bestimmt werden.
+
 \input{../content/oszi.tex}
 
-\subsection{Magn.}
+Dazu werden die Frequenzen der Sägezahnspannung $\nu_\text{Sägezahn}$ dividiert durch $n$ gemittelt.
+
+Damit ergibt sich 
+
+\begin{equation}
+  \nu_\text{Sinus} = \frac{1}{N} \cdot \sum_{i=1}^{N} \frac{\nu_{i, \text{Sägezahn}} }{n_i} = 50,029 \, \symup{Hz}
+\end{equation}
+
+und deren Abweichung zu 
+
+\begin{equation}
+  \Delta \nu_\text{Sinus} = \sqrt{ \frac{1}{N(N-1)} \cdot \sum_{i=1}^{N} \bigg( \frac{\nu_{i, \text{Sägezahn}}}{n_i} - \nu_\text{Sinus} \bigg)^2 } = 0,005 \, \symup{Hz}.
+\end{equation}
+
+
+\subsection{Ablenkspannung im B-Feld}
+
+Es werden zunächst die Daten aus \autoref{tab:magn-ges} in einem Diagramm aufgetragen.
 
 \input{../content/magn-zsm.tex}
 
+Durch diese wird anschließend eine Ausgleichsgerade der Form
+
+\begin{equation}
+  \frac{D}{D^2 + L^2} = a_i B + b_i
+\end{equation}
+
+gelegt. Der entsprechende Plot ist in \autoref{fig:plot-magnetisch} zu sehen.
 
 \begin{figure}
   \centering
   \begin{subfigure}{0.49\textwidth}
     \centering
-    \includegraphics[width=0.98\textwidth]{build/plot_elektrisch_0.pdf}
+    \includegraphics[width=0.98\textwidth]{build/plot_magnetisch_0.pdf}
     \caption{$U_\text{B} = 250$ V}
   \end{subfigure}
   \begin{subfigure}{0.49\textwidth}
     \centering
-    \includegraphics[width=0.98\textwidth]{build/plot_elektrisch_1.pdf}
+    \includegraphics[width=0.98\textwidth]{build/plot_magnetisch_1.pdf}
     \caption{$U_\text{B} = 400$ V}
   \end{subfigure}
   \caption{Plots der Ablenkung $D$ gegen das ablenkende Magnetfeld $B$ bei verschiedenen Beschleunigungspannungen $U_\text{B}$.}
   \label{fig:plot-magnetisch}
 \end{figure}
 
+Mittels Python 3.7.0 werden die Koeffizienten als
 
 \begin{align*}
   a_1 &= (8,6 \pm 0,1) \cdot 10^{3} \, \frac{\symup{m}}{\symup{T}} \\
@@ -98,6 +159,7 @@
   b_2 &= (6 \pm 9) \cdot 10^{-3} \, \symup{m}
 \end{align*}
 
+bestimmt.
 Damit ist nach GLEICHUNG die spezifische Elektronenladung als 
 
 \begin{align*}
