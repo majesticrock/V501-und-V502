@@ -132,7 +132,17 @@ Durch diese wird anschließend eine Ausgleichsgerade der Form
   \frac{D}{D^2 + L^2} = a_i B + b_i
 \end{equation}
 
-gelegt. Der entsprechende Plot ist in \autoref{fig:plot-magnetisch} zu sehen.
+gelegt. Dabei wird das Magnetfeld des Helmholtz-Spulenpaares nach GLEICHUNG berechnet.
+Dabei werden die Abmessungen an der Apperatur abgelesen:
+
+\begin{align*}
+  R &= 0,282 \, \symup{m} \\
+  N &= 20.
+\end{align*}
+
+Zu beachten ist, dass $L$ den Wirkungsbereich des ablenkenden Feldes beschreibt.
+Daher ist in diesem Versuchsteil $L = 175 \, \symup{mm}$.
+Der entsprechende Plot ist in \autoref{fig:plot-magnetisch} zu sehen.
 
 \begin{figure}
   \centering
@@ -163,8 +173,20 @@ bestimmt.
 Damit ist nach GLEICHUNG die spezifische Elektronenladung als 
 
 \begin{align*}
-  \bigg( \frac{e_0}{m_0} \bigg)_{250 \symup{V}} &= (1,48 \pm 0,03) \cdot 10^{11} \, \frac{\symup{C}}{\symup{kg}}
+  \bigg( \frac{e_0}{m_0} \bigg)_{250 \symup{V}} &= (1,48 \pm 0,03) \cdot 10^{11} \, \frac{\symup{C}}{\symup{kg}} \\
   \bigg( \frac{e_0}{m_0} \bigg)_{400 \symup{V}} &= (1,90 \pm 0,04) \cdot 10^{11} \, \frac{\symup{C}}{\symup{kg}}
 \end{align*}
 
 gegeben.
+
+Zur Bestimmung des lokalen Erdmagnetfeldes wird das Magnetfeld des Helmholtz-Spulenpaares berechnet,welches nötig ist,
+um die Auslenkung des Strahles auf den Ursprungspunkt zurückzusetzen.
+Die gemessene Stromstärke beträgt $I_0 = 0,04 \, A$, womit sich nach GLEICHUNG das Magnetfeld zu $B_0 = \, T$ berechnet.
+Dies ist jedoch nur die horizontale Komponente des Magnetfeldes so bestimmt werden kann, wird die vertikale errechnet.
+Damit ist das Gesamtmagnetfeld gegeben durch
+
+\begin{center}
+  $B_\text{Erde} = \frac{B_0}{\cos ( \phi )} = 5,34 \, \symup{\mu T}$,
+\end{center}
+
+wobei $\phi = 62°$ ist.

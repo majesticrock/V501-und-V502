@@ -36,7 +36,7 @@ for i in range(0, 2):
     ydata = np.zeros(n[i])
 
     for j in range(0, n[i]):
-        xdata[j] = mu0 * (8/np.sqrt(125)) * windungen * (1/spulenradius) * float(werte[j+1][0]) * 10**(-3)
+        xdata[j] = mu0 * (8/np.sqrt(125)) * windungen * (1/spulenradius) * float(werte[j+1][0])# * 10**(-3)
         ydata[j] = float(werte[j+1][1]) * 10**(-3) / (L**2 + (float(werte[j+1][1]) * 10**(-3))**2)
 
     x_line = np.linspace(np.amin(xdata), np.amax(xdata))
@@ -50,7 +50,7 @@ for i in range(0, 2):
     print("a" + str(i + 1) + " = " + str(popt[0]) + "+/-" + str(np.sqrt(pcov[0,0])))
     print("b" + str(i + 1) + " = " + str(popt[1]) + "+/-" + str(np.sqrt(pcov[1,1])))
 
-    plt.xlabel(r"$B$ / $10^{-3}$ T")
+    plt.xlabel(r"$B$ / T")
     plt.ylabel(r"$\frac{D}{D^2 + L^2}$ / m")
     plt.legend()
     plt.tight_layout()

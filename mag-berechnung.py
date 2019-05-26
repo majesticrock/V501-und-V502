@@ -16,3 +16,17 @@ eDurchM2 = 8 * ub2 * a2**2
 
 print(eDurchM1)
 print(eDurchM2)
+
+
+I = 0.04
+R = 0.282
+N = 20
+mu0 = np.pi * 4 * 10**(-7)
+phi = 62 * np.pi / 180
+
+
+B = mu0 * (8 / np.sqrt(125)) * (N * I)/(R)
+
+Bges = B / np.cos(phi)
+
+print(Bges)
