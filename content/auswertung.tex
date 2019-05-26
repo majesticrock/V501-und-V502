@@ -13,7 +13,8 @@ Durch diese wird je eine Ausgleichsgerade der Form
   D = a_i \cdot U_\text{d} + b_i
 \end{equation}
 
-gelegt. Die somit entstehenden Graphen sind in \autoref{fig:plot-elektrisch} zu sehen.
+gelegt. Dabei gehören die $a_i$ und $b_i$ zu den Beschleunigungspannungen in aufsteigender Reihenfolge.
+Die somit entstehenden Graphen sind in \autoref{fig:plot-elektrisch} zu sehen.
 
 \begin{figure}
   \centering
@@ -63,12 +64,12 @@ Mittels Python 3.7.0 werden die Koeffizienten als
   b_5 &= (14,04 \pm 0,07) \, \symup{mm}
 \end{align*}
 
-bestimmt. Dabei entsprechen die $a_i$ der jeweiligen Empfindlichkeit $\epsilon_i := \frac{D}{U_\text{d}}$
+bestimmt. Dabei entsprechen die $a_i$ der jeweiligen Empfindlichkeit $\epsilon_i := \frac{D}{U_\text{d}}$ zu den jeweiligen Beschleunigungspannungen..
 Diese wird in einem weiteren Plot gegen das Inverse der Beschleunigungspannung $U_\text{B}$ aufgetragen.
 Durch diese Werte wird ebenfalls eine Ausgleichsgerade der Form
 
 \begin{equation}
-  \epsilon_i = \frac{a_6}{U_\text{B}} + b_6
+  \epsilon_i = \frac{p L}{2 d} \cdot \frac{}{U_\text{B}} + b
 \end{equation}
 
 gelegt. Der entsprechende Graph ist in \autoref{fig:plt-ub} zu sehen.
@@ -83,11 +84,11 @@ gelegt. Der entsprechende Graph ist in \autoref{fig:plt-ub} zu sehen.
 Erneut mittels Python 3.7.0 werden die Koeffizienten als
 
 \begin{align*}
-  a_6 &= (330 \pm 10) \, \symup{mm} \\
-  b_6 &= (-0,03 \pm 0,03) \, \frac{\symup{mm}}{\symup{V}}
+  \frac{p L}{2 d} &= (330 \pm 10) \, \symup{mm} \\
+  b &= (-0,03 \pm 0,03) \, \frac{\symup{mm}}{\symup{V}}
 \end{align*}
 
-bestimmt. Zu Vergleichszwecken wird die folgende Größe mit den Theoriewerten berechnet
+bestimmt. Zu Vergleichszwecken wird die Größe, welche die Steigung der Geraden bestimmt, mit den Theoriewerten berechnet
 
 \begin{equation}
   \frac{p L}{2 d} = 357,5 \, \symup{mm}.
@@ -105,7 +106,7 @@ Weiterhin kann aus den Werten in \autoref{tab:oszi} die Frequenz einer Sinusspan
 
 \input{../content/oszi.tex}
 
-Dazu werden die Frequenzen der Sägezahnspannung $\nu_\text{Sägezahn}$ dividiert durch $n$ gemittelt.
+Dazu werden die Frequenzen der Sägezahnspannung $\nu_\text{Sägezahn}$ durch $n$ dividiert und gemittelt.
 
 Damit ergibt sich 
 
@@ -119,6 +120,7 @@ und deren Abweichung zu
   \Delta \nu_\text{Sinus} = \sqrt{ \frac{1}{N(N-1)} \cdot \sum_{i=1}^{N} \bigg( \frac{\nu_{i, \text{Sägezahn}}}{n_i} - \nu_\text{Sinus} \bigg)^2 } = 0,005 \, \symup{Hz}.
 \end{equation}
 
+Dabei ist $N$ die Anzahl der Messwerte.
 
 \subsection{Ablenkspannung im B-Feld}
 
@@ -179,9 +181,9 @@ Damit ist nach GLEICHUNG die spezifische Elektronenladung als
 
 gegeben.
 
-Zur Bestimmung des lokalen Erdmagnetfeldes wird das Magnetfeld des Helmholtz-Spulenpaares berechnet,welches nötig ist,
+Zur Bestimmung des lokalen Erdmagnetfeldes wird das Magnetfeld des Helmholtz-Spulenpaares berechnet, welches nötig ist,
 um die Auslenkung des Strahles auf den Ursprungspunkt zurückzusetzen.
-Die gemessene Stromstärke beträgt $I_0 = 0,04 \, A$, womit sich nach GLEICHUNG das Magnetfeld zu $B_0 = \, T$ berechnet.
+Die gemessene Stromstärke beträgt $I_0 = 0,04 \, \symup{A}$, womit sich nach GLEICHUNG das Magnetfeld zu $B_0 = 2,55 \, \symup{\mu T}$ berechnet.
 Dies ist jedoch nur die horizontale Komponente des Magnetfeldes so bestimmt werden kann, wird die vertikale errechnet.
 Damit ist das Gesamtmagnetfeld gegeben durch
 

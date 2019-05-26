@@ -27,6 +27,8 @@ phi = 62 * np.pi / 180
 
 B = mu0 * (8 / np.sqrt(125)) * (N * I)/(R)
 
+print(B)
+
 Bges = B / np.cos(phi)
 
 print(Bges)
